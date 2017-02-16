@@ -15,14 +15,14 @@ TextView currentStudent;
     TextView alumni;
     FragmentManager fragmentManager;
     FragmentTransaction LoginTransaction;
+    public final int STUDENT_INDEX=1;
+    public final int Alumni_INDEX=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         currentStudent=(TextView)findViewById(R.id.current_student);
         alumni=(TextView)findViewById(R.id.alumni);
-      //  currentStudent.setOnClickListener(this);
-        //alumni.setOnClickListener(this);
         if(fragmentManager==null) {
             fragmentManager = getSupportFragmentManager();
             LoginFragment loginFragment = LoginFragment.newInstance();
@@ -50,7 +50,7 @@ TextView currentStudent;
         }
         if(count==3)
         {
-            Intent intent=new Intent(this,StudentDetail.class);
+            Intent intent=StudentDetail.getIntent(this,STUDENT_INDEX);
 startActivity(intent);
         }
 
@@ -74,7 +74,7 @@ startActivity(intent);
         }
         if(count==3)
         {
-            Intent intent=new Intent(this,StudentDetail.class);
+            Intent intent=StudentDetail.getIntent(this,Alumni_INDEX);
             startActivity(intent);
         }
 
