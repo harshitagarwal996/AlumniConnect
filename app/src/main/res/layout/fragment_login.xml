@@ -5,6 +5,44 @@
     android:orientation="vertical"
     tools:context="com.example.shivanshu.alumniconnect.LoginFragment">
 
+
+    <LinearLayout
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/current_student"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Current Student"
+            android:background="#ffffff"
+            android:textColor="#3b6342"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            />
+
+        <TextView
+            android:id="@+id/alumni"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Alumni"
+            android:textAlignment="center"
+            android:background="#3b6342"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            />
+    </LinearLayout>
+
+
+
 <EditText android:id="@+id/studdent_login_id"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -19,6 +57,7 @@
         android:layout_marginTop="16dp"
         android:hint="password"/>
     <Button
+        android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Connect"
@@ -28,6 +67,7 @@
         android:background="@color/colorPrimaryDark"/>
 
     <Button
+        android:id="@+id/register"
         android:layout_marginTop="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,7 +77,7 @@
         android:textStyle="bold"
         android:background="@color/colorPrimaryDark"/>
     <TextView
-        android:layout_marginTop="16dp"
+
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:text="Your Details are Valuable and fully secured with us."/>
