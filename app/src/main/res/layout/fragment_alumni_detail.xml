@@ -33,7 +33,7 @@
             android:id="@+id/college_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint=""/>
+            android:hint="College name"/>
         <TextView
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
@@ -47,7 +47,7 @@
             android:id="@+id/company_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint=""/>
+            android:hint="Current company name"/>
         <TextView
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
@@ -61,7 +61,7 @@
             android:id="@+id/email_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint=""/>
+            android:hint="Email Id"/>
         <TextView
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
@@ -70,12 +70,22 @@
             android:textSize="20sp"
             android:textStyle="bold"
             />
-        <EditText
-            android:maxLines="1"
-            android:id="@+id/contact_number"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint=""/>
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+91"
+                android:textSize="18dp"/>
+            <EditText
+                android:maxLines="1"
+                android:id="@+id/contact_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Your Contact Number here"/>
+        </LinearLayout>
         <TextView
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
@@ -89,7 +99,7 @@
             android:id="@+id/working_technology"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint=""/>
+            android:hint="Java, PHP, Python etc"/>
         <Button
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
