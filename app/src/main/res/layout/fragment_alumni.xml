@@ -80,6 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:text="Your Details are Valuable and fully secured with us."
+        android:drawableStart="@drawable/lock"
         android:drawableLeft="@drawable/lock" />
 
 </LinearLayout>
