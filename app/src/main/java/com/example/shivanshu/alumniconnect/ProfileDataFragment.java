@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ProfileDataFragment.OnFragmentInteractionListener} interface
+ * {@link ProfileDataFragment.OnProfileDataFragmentInteractionListener} interface
  * to handle interaction events.
  * Use the {@link ProfileDataFragment#newInstance} factory method to
  * create an instance of this fragment.
@@ -27,7 +27,7 @@ public class ProfileDataFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private OnFragmentInteractionListener mListener;
+    private OnProfileDataFragmentInteractionListener mListener;
 
     public ProfileDataFragment() {
         // Required empty public constructor
@@ -70,18 +70,18 @@ public class ProfileDataFragment extends Fragment {
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+            mListener.onProfileDataFragmentInteraction(uri);
         }
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
+        if (context instanceof OnProfileDataFragmentInteractionListener) {
+            mListener = (OnProfileDataFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+                    + " must implement OnProfileDataFragmentInteractionListener");
         }
     }
 
@@ -101,8 +101,8 @@ public class ProfileDataFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnFragmentInteractionListener {
+    public interface OnProfileDataFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void onProfileDataFragmentInteraction(Uri uri);
     }
 }
