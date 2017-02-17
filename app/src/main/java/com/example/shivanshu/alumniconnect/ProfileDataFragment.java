@@ -9,7 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+/**
+ * Created by Harshit on 16-02-2017.
+ */
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,14 +64,12 @@ public class ProfileDataFragment extends Fragment {
         }
         //Error
         RecyclerView profileDataRecycler=R.id.profile_data_recycler;
-        profileDataRecycler.setLayoutManager(new LinearLayoutManager());
-
-
+        profileDataRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        profileDataRecycler.setAdapter(new profileDataAdapter);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile_data, container, false);
     }
