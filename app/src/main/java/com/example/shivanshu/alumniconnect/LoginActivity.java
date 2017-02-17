@@ -52,6 +52,7 @@ TextView currentStudent;
         {
             Intent intent=StudentDetail.getIntent(this,STUDENT_INDEX);
 startActivity(intent);
+            finish();
         }
 
     }
@@ -76,6 +77,7 @@ startActivity(intent);
         {
             Intent intent=StudentDetail.getIntent(this,Alumni_INDEX);
             startActivity(intent);
+            finish();
         }
 
         }

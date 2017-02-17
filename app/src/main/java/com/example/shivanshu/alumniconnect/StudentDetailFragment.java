@@ -4,9 +4,12 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 
 
 /**
@@ -17,13 +20,15 @@ import android.view.ViewGroup;
  * Use the {@link StudentDetailFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class StudentDetailFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class StudentDetailFragment extends Fragment implements View.OnFocusChangeListener{
 
-    // TODO: Rename and change types of parameters
+    int[]  ValidationId={R.id.name_validation,R.id.college_validation,R.id.college_id_validation,R.id.email_validation,R.id.phone_number_validation,R.id.branch_validation};
+    private  TextView[] ValidationViews=new TextView[7];
+    int[] EditTextId={R.id.name,R.id.college_name,R.id.college_id,R.id.email_id,R.id.contact_number,R.id.branch};
+    EditText[] StudentDetails=new EditText[7];
+    String s="";
+    int i=0;
+
     private String mParam1;
     private String mParam2;
 
@@ -55,16 +60,23 @@ public class StudentDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+          //  mParam1 = getArguments().getString(ARG_PARAM1);
+           // mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_student_detail, container, false);
+       View view= inflater.inflate(R.layout.fragment_student_detail, container, false);
+        for(i=0;i<ValidationId.length;i++)
+        {
+
+            ValidationViews[i]=(TextView)view.findViewById(ValidationId[i]);
+            StudentDetails[i]=(EditText)view.findViewById(EditTextId[i]);
+            StudentDetails[i].setOnFocusChangeListener(this);
+        }
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -89,6 +101,28 @@ public class StudentDetailFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+
+        for (i = 0; i < StudentDetails.length; i++) {
+            if (i != 0) {
+                if (v == StudentDetails[i]) {
+                    s = StudentDetails[i - 1].getText().toString();
+                    if(s.length()==0)
+                    {
+                        ValidationViews[i-1].setVisibility(View.VISIBLE);
+                    }
+                    else if(ValidationViews[i-1].getVisibility()==View.VISIBLE)
+                    {
+                        ValidationViews[i-1].setVisibility(View.GONE);
+
+                    }
+                }
+            }
+        }
+
     }
 
     /**

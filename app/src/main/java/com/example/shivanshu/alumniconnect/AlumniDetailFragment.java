@@ -7,6 +7,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,13 +28,15 @@ import static com.example.shivanshu.alumniconnect.R.drawable.selected_box;
  * Use the {@link AlumniDetailFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AlumniDetailFragment extends Fragment implements View.OnClickListener{
+public class AlumniDetailFragment extends Fragment implements View.OnFocusChangeListener{
    int[]  ValidationId={R.id.name_validation,R.id.college_validation,R.id.company_validation,R.id.email_validation,R.id.phone_number_validation,R.id.tech_validation};
-   private static TextView[] ValidationViews=new TextView[7];
+   private  TextView[] ValidationViews=new TextView[7];
     int[] EditTextId={R.id.name,R.id.college_name,R.id.company_name,R.id.email_id,R.id.contact_number,R.id.working_technology};
-    static EditText[] AlumniDetails=new EditText[7];
+    EditText[] AlumniDetails=new EditText[7];
+    String s="";
     int i=0;
 int count=0;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     private OnFragmentInteractionListener mListener;
 
     public AlumniDetailFragment() {
@@ -70,12 +75,10 @@ int count=0;
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_alumni_detail, container, false);
         for(i=0;i<ValidationId.length;i++)
-        {Log.d("digvijay","clicked");
+        {
             ValidationViews[i]=(TextView)view.findViewById(ValidationId[i]);
             AlumniDetails[i]=(EditText)view.findViewById(EditTextId[i]);
-            String s=AlumniDetails[i].getText().toString();
-            Log.d("digvijay","THIS IS DIGVIJAY");
-            AlumniDetails[i].setOnClickListener(this);
+            AlumniDetails[i].setOnFocusChangeListener(this);
         }
         return view;
     }
@@ -104,12 +107,26 @@ int count=0;
     }
 
     @Override
-    public void onClick(View v) {
-        for( i=0;i<AlumniDetails.length;i++)
-        {
-            ValidationViews[i].setVisibility(View.VISIBLE);
+    public void onFocusChange(View v, boolean hasFocus) {
+        for (i = 0; i < AlumniDetails.length; i++) {
+            if (i != 0) {
+                if (v == AlumniDetails[i]) {
+                    s = AlumniDetails[i - 1].getText().toString();
+                    if(s.length()==0)
+                    {
+                        ValidationViews[i-1].setVisibility(View.VISIBLE);
+                    }
+                    else if(ValidationViews[i-1].getVisibility()==View.VISIBLE)
+                    {
+                        ValidationViews[i-1].setVisibility(View.GONE);
 
-    }
+                    }
+
+                    }
+
+                }
+            }
+        }
 
     /**
      * This interface must be implemented by activities that contain this
@@ -121,6 +138,7 @@ int count=0;
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
+
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onAlumniDetailInteraction();
