@@ -16,4 +16,16 @@
         android:id="@+id/profile_header_fragment_profile_activity">
 
     </FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/profile_data_fragment_profile_activity">
+
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/profile_footer_fragment_profile_activity">
+
+    </FrameLayout>
 </LinearLayout>

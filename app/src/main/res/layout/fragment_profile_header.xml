@@ -4,6 +4,7 @@
     android:orientation="horizontal">
     <ImageButton
         android:layout_width="wrap_content"
+        android:background="@drawable/profilepicdrawable"
         android:layout_height="wrap_content"
         android:id="@+id/image_button_profile_header_fragment"
         android:src="@drawable/profile"/>
@@ -11,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textSize="32dp"
+        android:textSize="28dp"
         android:gravity="center"
         android:id="@+id/username_profile_header_fragment"
         android:text="UserName"/>

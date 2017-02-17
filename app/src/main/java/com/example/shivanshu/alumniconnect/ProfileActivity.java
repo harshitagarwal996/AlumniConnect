@@ -1,12 +1,10 @@
 package com.example.shivanshu.alumniconnect;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-
-public class ProfileActivity extends AppCompatActivity implements ProfileHeaderFragment.OnFragmentInteractionListener{
+public class ProfileActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,14 +15,23 @@ public class ProfileActivity extends AppCompatActivity implements ProfileHeaderF
         {
 
             ProfileHeaderFragment profileHeaderFragment=new ProfileHeaderFragment();
-            FragmentTransaction profileHeaderFragmenttransaction=manager.beginTransaction();
-            profileHeaderFragmenttransaction.add(R.id.profile_header_fragment_profile_activity,profileHeaderFragment);
-            profileHeaderFragmenttransaction.commit();
+            FragmentTransaction profileHeaderFragmentTransaction=manager.beginTransaction();
+            profileHeaderFragmentTransaction.add(R.id.profile_header_fragment_profile_activity,profileHeaderFragment);
+            profileHeaderFragmentTransaction.commit();
         }
-    }
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
+        if(manager.findFragmentById(R.id.profile_data_fragment_profile_activity)==null)
+        {
+           ProfileDataFragment profileDataFragment=new ProfileDataFragment();
+            FragmentTransaction profileDataFragmentTransaction=manager.beginTransaction();
+            profileDataFragmentTransaction.add(R.id.profile_data_fragment_profile_activity,profileDataFragment);
+            profileDataFragmentTransaction.commit();
+        }
+        if(manager.findFragmentById(R.id.profile_footer_fragment_profile_activity)==null)
+        {
+            ProfileFooterFragment profileFooterFragment=new ProfileFooterFragment();
+            FragmentTransaction profileFooterfragmentTransaction=manager.beginTransaction();
+            profileFooterfragmentTransaction.add(R.id.profile_footer_fragment_profile_activity,profileFooterFragment);
+            profileFooterfragmentTransaction.commit();
+        }
     }
 }
