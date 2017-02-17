@@ -63,15 +63,16 @@ public class ProfileDataFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
         //Error
-        RecyclerView profileDataRecycler=R.id.profile_data_recycler;
-        profileDataRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
-        profileDataRecycler.setAdapter(new profileDataAdapter);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile_data, container, false);
+        View inflate = inflater.inflate(R.layout.fragment_profile_data, container, false);
+        RecyclerView profileDataRecycler= (RecyclerView) inflate.findViewById(R.id.profile_data_recycler);
+        profileDataRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        profileDataRecycler.setAdapter(new profileDataAdapter());
+        return inflate;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
