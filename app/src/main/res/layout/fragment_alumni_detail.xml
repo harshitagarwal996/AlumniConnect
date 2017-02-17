@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.shivanshu.alumniconnect.AlumniDetailFragment">
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,7 +20,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:background="@drawable/selected_box"
             android:hint="enter your name"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/name_validation"
+            android:text="krapya isse bharne ka kast karein"
+            android:textColor="@color/warning_color"
+            android:background="@drawable/waring_box"
+            android:visibility="gone"/>
         <TextView
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
@@ -33,7 +46,19 @@
             android:id="@+id/college_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="College name"/>
+            android:hint="College name"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:background="@drawable/selected_box"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/college_validation"
+            android:text="krapya isse sahi bharne ka kast karein"
+            android:textColor="@color/warning_color"
+            android:background="@drawable/waring_box"
+            android:visibility="gone"/>
         <TextView
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
@@ -47,7 +72,20 @@
             android:id="@+id/company_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Current company name"/>
+            android:hint="Current company name"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:background="@drawable/selected_box"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/company_validation"
+            android:text="krapya isse bharne ka kast karein"
+            android:textColor="@color/warning_color"
+            android:background="@drawable/waring_box"
+            android:visibility="gone"/>
+
+
         <TextView
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
@@ -61,7 +99,19 @@
             android:id="@+id/email_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:background="@drawable/selected_box"
             android:hint="Email Id"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/email_validation"
+            android:text="krapya sahi email dalein"
+            android:textColor="@color/warning_color"
+            android:background="@drawable/waring_box"
+            android:visibility="gone"/>
+
         <TextView
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
@@ -78,14 +128,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="+91"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:background="@drawable/selected_box"
                 android:textSize="18dp"/>
             <EditText
-                android:maxLines="1"
+                android:maxLength="10"
                 android:id="@+id/contact_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:background="@drawable/selected_box"
                 android:hint="Your Contact Number here"/>
         </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/phone_number_validation"
+            android:text="krapya isse bharne ka kast karein"
+            android:textColor="@color/warning_color"
+            android:background="@drawable/waring_box"
+            android:visibility="gone"/>
         <TextView
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
@@ -99,7 +163,18 @@
             android:id="@+id/working_technology"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:background="@drawable/selected_box"
             android:hint="Java, PHP, Python etc"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tech_validation"
+            android:text="krapya isse bharne ka kast karein"
+            android:textColor="@color/warning_color"
+            android:background="@drawable/waring_box"
+            android:visibility="gone"/>
         <Button
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
