@@ -46,6 +46,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="16dp"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp"
+    android:background="@drawable/selected_box"
     android:hint="College Id"/>
 
     <EditText
@@ -53,6 +56,9 @@
         android:id="@+id/student_login_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:background="@drawable/selected_box"
         android:layout_marginTop="16dp"
         android:hint="password"/>
     <Button

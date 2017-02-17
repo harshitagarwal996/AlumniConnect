@@ -5,4 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="clicked">#3b6342</color>
     <color name="unclicked">#ffffff</color>
+    <color name="warning_color">#d4ff0000</color>
+    <color name="warning_text">#d4ff0000</color>
+    <color name="edittext_color">#d644ade6</color>
 </resources>
