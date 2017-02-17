@@ -90,7 +90,7 @@
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Working Technology:"
+            android:text="Branch:"
             android:textSize="20sp"
             android:textStyle="bold"
             />
@@ -99,14 +99,14 @@
             android:id="@+id/working_technology"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Java, PHP, Python etc"/>
+            android:hint="CSE,IT,EE,CE etc"/>
         <Button
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:background="@color/colorPrimaryDark"
-            android:textSize="30sp"
-            />
+            android:textSize="20sp"
+            android:text="@string/signup" />
     </LinearLayout>
 </ScrollView>

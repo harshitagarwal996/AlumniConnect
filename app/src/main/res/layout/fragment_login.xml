@@ -13,10 +13,11 @@
         android:orientation="horizontal">
         <TextView
             android:id="@+id/current_student"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Current Student"
+            android:gravity="center"
+            android:text="Student"
             android:background="#ffffff"
             android:textColor="#3b6342"
             android:textStyle="bold"
@@ -27,7 +28,7 @@
 
         <TextView
             android:id="@+id/alumni"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Alumni"
@@ -40,8 +41,6 @@
             android:paddingBottom="10dp"
             />
     </LinearLayout>
-
-
 
 <EditText android:id="@+id/studdent_login_id"
     android:layout_width="match_parent"
