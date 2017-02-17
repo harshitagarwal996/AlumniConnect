@@ -4,5 +4,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="signup">Take my Details</string>
+<<<<<<< HEAD
     <string name="dummy">Dummy Profile data</string>
+=======
+    <string name="warning_msg">krapya isse bharne ka kast karein</string>
+>>>>>>> digvijay
 </resources>
