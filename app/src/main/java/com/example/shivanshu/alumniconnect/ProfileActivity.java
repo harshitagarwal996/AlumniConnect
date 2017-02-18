@@ -33,6 +33,7 @@ public class ProfileActivity extends AppCompatActivity implements ProfileFooterF
         {
            ProfileDataFragment profileDataFragment=new ProfileDataFragment();
             FragmentTransaction profileDataFragmentTransaction=manager.beginTransaction();
+
             profileDataFragmentTransaction.add(R.id.profile_data_fragment_profile_activity,profileDataFragment);
             profileDataFragmentTransaction.commit();
         }

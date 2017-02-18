@@ -9,25 +9,23 @@ import android.view.ViewGroup;
 /**
  * Created by Harshit on 17-02-2017.
  */
-public class profileDataAdapter extends RecyclerView.Adapter {
-    private int itemCount=0;
+public class profileDataAdapter extends RecyclerView.Adapter<profileDataViewHolder> {
+    private int itemCount;
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Context context=parent.getContext();
-        LayoutInflater inflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    public profileDataViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        LayoutInflater inflater= (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View inflate = inflater.inflate(R.layout.recycler_data_profile, parent, false);
         return new profileDataViewHolder(inflate);
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(profileDataViewHolder holder, int position) {
+        holder.textView.setText("Company "+(position+1)+" campus placement");
 
-    }
-    public void setItemCount(){
     }
 
     @Override
     public int getItemCount() {
-        return 20;
+        return 30;
     }
 }

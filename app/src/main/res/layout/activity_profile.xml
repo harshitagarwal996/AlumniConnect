@@ -11,20 +11,25 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.shivanshu.alumniconnect.ProfileActivity">
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:layout_gravity="top"
         android:id="@+id/profile_header_fragment_profile_activity">
 
     </FrameLayout>
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="8"
         android:id="@+id/profile_data_fragment_profile_activity">
 
     </FrameLayout>
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="bottom"
         android:id="@+id/profile_footer_fragment_profile_activity">
 
     </FrameLayout>
