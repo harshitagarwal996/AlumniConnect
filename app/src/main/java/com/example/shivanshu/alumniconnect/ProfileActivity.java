@@ -2,11 +2,12 @@ package com.example.shivanshu.alumniconnect;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-public class ProfileActivity extends AppCompatActivity{
+public class ProfileActivity extends AppCompatActivity implements ProfileFooterFragment.OnProfileFooterFragmentInteractionListener,ProfileDataFragment.OnProfileDataFragmentInteractionListener,ProfileHeaderFragment.OnProfileHeaderFragmentInteractionListener{
 
 
     public static Intent getProfileActivityIntent(Context c)
@@ -42,5 +43,20 @@ public class ProfileActivity extends AppCompatActivity{
             profileFooterfragmentTransaction.add(R.id.profile_footer_fragment_profile_activity,profileFooterFragment);
             profileFooterfragmentTransaction.commit();
         }
+    }
+
+    @Override
+    public void onProfileDataFragmentInteraction(Uri uri) {
+        
+    }
+
+    @Override
+    public void onProfileFooterFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void onProfileHeaderFragmentInteraction(Uri uri) {
+
     }
 }
