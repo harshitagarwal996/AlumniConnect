@@ -138,11 +138,7 @@ int count=0;
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-<<<<<<< HEAD
-    }
-=======
 
->>>>>>> digvijay
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onAlumniDetailInteraction();
