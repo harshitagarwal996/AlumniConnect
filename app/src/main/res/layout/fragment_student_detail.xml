@@ -20,6 +20,8 @@
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:hint="Enter your name"
+            android:textColor="@color/edittext_color_2"
+            android:textStyle="bold"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:background="@drawable/selected_box"/>
@@ -27,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/name_validation"
-            android:text="krapya isse bharne ka kast karein"
+            android:text="@string/warning_msg"
             android:textColor="@color/warning_color"
             android:background="@drawable/waring_box"
             android:visibility="gone"/>
@@ -45,6 +47,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="15dp"
+            android:textColor="@color/edittext_color_2"
+            android:textStyle="bold"
             android:paddingBottom="15dp"
             android:background="@drawable/selected_box"
             android:hint="College name"/>
@@ -52,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/college_validation"
-            android:text="krapya isse bharne ka kast karein"
+            android:text="@string/warning_msg"
             android:textColor="@color/warning_color"
             android:background="@drawable/waring_box"
             android:visibility="gone"/>
@@ -70,6 +74,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="15dp"
+            android:textColor="@color/edittext_color_2"
+            android:textStyle="bold"
             android:paddingBottom="15dp"
             android:background="@drawable/selected_box"
             android:hint="College Id"/>
@@ -77,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/college_id_validation"
-            android:text="krapya isse bharne ka kast karein"
+            android:text="@string/warning_msg"
             android:textColor="@color/warning_color"
             android:background="@drawable/waring_box"
             android:visibility="gone"/>
@@ -94,6 +100,8 @@
             android:id="@+id/email_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/edittext_color_2"
+            android:textStyle="bold"
             android:hint="Personal Email Id"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
@@ -129,6 +137,8 @@
             <EditText
                 android:maxLines="1"
                 android:id="@+id/contact_number"
+                android:textColor="@color/edittext_color_2"
+                android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Your Contact Number here"
@@ -140,7 +150,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/phone_number_validation"
-            android:text="krapya isse bharne ka kast karein"
+            android:text="@string/warning_msg"
             android:textColor="@color/warning_color"
             android:background="@drawable/waring_box"
             android:visibility="gone"/>
@@ -154,10 +164,12 @@
             />
         <EditText
             android:maxLines="1"
-            android:id="@+id/working_technology"
+            android:id="@+id/branch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="15dp"
+            android:textColor="@color/edittext_color_2"
+            android:textStyle="bold"
             android:paddingBottom="15dp"
             android:background="@drawable/selected_box"
             android:hint="CSE,IT,EE,CE etc"/>
@@ -165,7 +177,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/branch_validation"
-            android:text="krapya isse bharne ka kast karein"
+            android:text="@string/warning_msg"
             android:textColor="@color/warning_color"
             android:background="@drawable/waring_box"
             android:visibility="gone"/>

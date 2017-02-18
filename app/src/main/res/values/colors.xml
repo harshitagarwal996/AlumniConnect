@@ -8,4 +8,5 @@
     <color name="warning_color">#d4ff0000</color>
     <color name="warning_text">#d4ff0000</color>
     <color name="edittext_color">#d644ade6</color>
+    <color name="edittext_color_2">#df023a58</color>
 </resources>
