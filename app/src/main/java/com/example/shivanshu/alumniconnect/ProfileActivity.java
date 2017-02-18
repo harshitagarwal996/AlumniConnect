@@ -1,10 +1,19 @@
 package com.example.shivanshu.alumniconnect;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 public class ProfileActivity extends AppCompatActivity{
+
+
+    public static Intent getProfileActivityIntent(Context c)
+    {
+        Intent intent =new Intent(c,ProfileActivity.class);
+        return intent;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
