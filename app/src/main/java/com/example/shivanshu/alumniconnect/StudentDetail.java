@@ -45,7 +45,7 @@ detailManager=getSupportFragmentManager();
     }
 
     @Override
-    public void onFragmentInteraction(Uri uri) {
+    public void onStudentDetailInteraction(Uri uri) {
 
     }
 
