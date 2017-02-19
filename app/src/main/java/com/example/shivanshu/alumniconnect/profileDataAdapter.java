@@ -10,7 +10,7 @@ import android.view.ViewGroup;
  * Created by Harshit on 17-02-2017.
  */
 public class profileDataAdapter extends RecyclerView.Adapter<profileDataViewHolder> {
-    private int itemCount;
+    private int itemCount=30;
     @Override
     public profileDataViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater= (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -26,6 +26,6 @@ public class profileDataAdapter extends RecyclerView.Adapter<profileDataViewHold
 
     @Override
     public int getItemCount() {
-        return 30;
+        return itemCount;
     }
 }
