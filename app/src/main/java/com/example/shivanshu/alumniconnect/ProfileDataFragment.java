@@ -1,7 +1,6 @@
 package com.example.shivanshu.alumniconnect;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,7 +20,7 @@ import android.view.ViewGroup;
  * Use the {@link ProfileDataFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProfileDataFragment extends Fragment {
+public class ProfileDataFragment extends Fragment implements View.OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -75,7 +74,7 @@ public class ProfileDataFragment extends Fragment {
     }
 
     // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
+    public void onButtonPressed(View uri) {
         if (mListener != null) {
             mListener.onProfileDataFragmentInteraction(uri);
         }
@@ -98,6 +97,11 @@ public class ProfileDataFragment extends Fragment {
         mListener = null;
     }
 
+    @Override
+    public void onClick(View v) {
+        this.onButtonPressed(v);
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -110,6 +114,6 @@ public class ProfileDataFragment extends Fragment {
      */
     public interface OnProfileDataFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onProfileDataFragmentInteraction(Uri uri);
+        void onProfileDataFragmentInteraction(View uri);
     }
 }

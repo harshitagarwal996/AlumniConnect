@@ -19,7 +19,7 @@
         android:layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/factory_fragment_profile_footer"
+        android:id="@+id/company_fragment_profile_footer"
         android:src="@drawable/company"/>
     <ImageButton
         android:layout_weight="1"

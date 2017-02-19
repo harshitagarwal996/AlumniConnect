@@ -1,12 +1,12 @@
 package com.example.shivanshu.alumniconnect;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 
@@ -24,6 +24,9 @@ public class ProfileFooterFragment extends Fragment implements View.OnClickListe
     ImageView HomeScreenImageView;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    int[] imageButtonId={R.id.company_fragment_profile_footer,R.id.setting_fragment_profile_footer,R.id.profile_fragment_profile_footer,R.id.chat_fragment_profile_footer,R.id.home_fragment_profile_footer};
+    ImageButton[] imageButtons=new ImageButton[5];
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -66,10 +69,16 @@ public class ProfileFooterFragment extends Fragment implements View.OnClickListe
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_profile_footer, container, false);
-        return  view;  }
+        view.setOnClickListener(this);
+        for (int i=0;i<5;i++) {
+            imageButtons[i] = (ImageButton) view.findViewById(imageButtonId[i]);
+            imageButtons[i].setOnClickListener(this);
+        }
+            return  view;
+    }
 
     // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
+    public void onButtonPressed(View uri) {
         if (mListener != null) {
             mListener.onProfileFooterFragmentInteraction(uri);
         }
@@ -94,8 +103,7 @@ public class ProfileFooterFragment extends Fragment implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        Uri uri=null;
-        onButtonPressed(uri);
+        onButtonPressed(v);
     }
 
     /**
@@ -110,6 +118,6 @@ public class ProfileFooterFragment extends Fragment implements View.OnClickListe
      */
     public interface OnProfileFooterFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onProfileFooterFragmentInteraction(Uri uri);
+        void onProfileFooterFragmentInteraction(View uri);
     }
 }
