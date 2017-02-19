@@ -45,12 +45,20 @@ detailManager=getSupportFragmentManager();
     }
 
     @Override
-    public void onStudentDetailInteraction(Uri uri) {
+    public void onStudentDetailInteraction(String[] s) {
+        Log.d("digvijay","Data sucessfully submitted");
+        //DetailHandleModel.studentRegistrationDetail(s);
+        Intent intent=ProfileActivity.getProfileActivityIntent(this);
+        startActivity(intent);
 
     }
 
     @Override
-    public void onAlumniDetailInteraction() {
+    public void onAlumniDetailInteraction(String[] s) {
+        Log.d("digvijay","Data sucessfully submitted");
+        //DetailHandleModel.alumniRegistrationDetail(s);
+        Intent intent=ProfileActivity.getProfileActivityIntent(this);
+        startActivity(intent);
 
     }
 }

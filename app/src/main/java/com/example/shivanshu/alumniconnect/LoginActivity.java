@@ -46,6 +46,7 @@ TextView currentStudent;
         if(count==2)
         {String Username=LoginFragment.studentId();
             String Password=LoginFragment.studentPassword();
+
             Intent intent=ProfileActivity.getProfileActivityIntent(this);
             startActivity(intent);
 
@@ -73,7 +74,8 @@ startActivity(intent);
         if(count==2)
         {String Username=LoginFragment.studentId();
             String Password=LoginFragment.studentPassword();
-
+            Intent intent=ProfileActivity.getProfileActivityIntent(this);
+            startActivity(intent);
         }
         if(count==3)
         {
@@ -83,4 +85,5 @@ startActivity(intent);
         }
 
         }
+
 }

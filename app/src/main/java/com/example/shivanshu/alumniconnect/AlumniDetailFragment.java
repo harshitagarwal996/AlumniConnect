@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -28,14 +29,20 @@ import static com.example.shivanshu.alumniconnect.R.drawable.selected_box;
  * Use the {@link AlumniDetailFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AlumniDetailFragment extends Fragment implements View.OnFocusChangeListener{
+public class AlumniDetailFragment extends Fragment implements View.OnFocusChangeListener,View.OnClickListener{
+
+
+    private final int VALIDDATA=1;
+    private final int INVALIDDATA=2;
+
    int[]  ValidationId={R.id.name_validation,R.id.college_validation,R.id.company_validation,R.id.email_validation,R.id.phone_number_validation,R.id.tech_validation};
    private  TextView[] ValidationViews=new TextView[7];
     int[] EditTextId={R.id.name,R.id.college_name,R.id.company_name,R.id.email_id,R.id.contact_number,R.id.working_technology};
     EditText[] AlumniDetails=new EditText[7];
-    String s="";
+    String[] s=new String[7];
+    Button AlumniDetailButton;
     int i=0;
-int count=0;
+static  int CheckedEnteryError=0;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     private OnFragmentInteractionListener mListener;
 
@@ -80,13 +87,10 @@ int count=0;
             AlumniDetails[i]=(EditText)view.findViewById(EditTextId[i]);
             AlumniDetails[i].setOnFocusChangeListener(this);
         }
-        return view;
-    }
+        AlumniDetailButton=(Button)view.findViewById(R.id.submit_alumni_detail);
+        AlumniDetailButton.setOnClickListener(this);
 
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onAlumniDetailInteraction();
-        }
+        return view;
     }
 
     @Override
@@ -111,13 +115,14 @@ int count=0;
         for (i = 0; i < AlumniDetails.length; i++) {
             if (i != 0) {
                 if (v == AlumniDetails[i]) {
-                    s = AlumniDetails[i - 1].getText().toString();
-                    if(s.length()==0)
-                    {
+                    s[i] = AlumniDetails[i - 1].getText().toString();
+                    if(s[i].length()==0)
+                    {CheckedEnteryError=INVALIDDATA;
                         ValidationViews[i-1].setVisibility(View.VISIBLE);
                     }
                     else if(ValidationViews[i-1].getVisibility()==View.VISIBLE)
                     {
+                        CheckedEnteryError=VALIDDATA;
                         ValidationViews[i-1].setVisibility(View.GONE);
 
                     }
@@ -127,6 +132,26 @@ int count=0;
                 }
             }
         }
+
+    @Override
+    public void onClick(View v) {
+
+        if(CheckedEnteryError==VALIDDATA) {
+            if (i != 0) {
+                Log.d("digvijay", "Data is valid");
+                if (mListener != null) {
+                    mListener.onAlumniDetailInteraction(s);
+
+
+                }
+            }
+        }
+        else
+        {
+            Log.d("digvijay","Data is not valid");
+        }
+
+    }
 
     /**
      * This interface must be implemented by activities that contain this
@@ -141,6 +166,6 @@ int count=0;
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onAlumniDetailInteraction();
+        void onAlumniDetailInteraction(String[] s);
     }
 }
