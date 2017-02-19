@@ -45,7 +45,7 @@ detailManager=getSupportFragmentManager();
     }
 
     @Override
-    public void onStudentDetailInteraction(String[] s) {
+    public void onStudentDetailInteraction() {
         Log.d("digvijay","Data sucessfully submitted");
         //DetailHandleModel.studentRegistrationDetail(s);
         Intent intent=ProfileActivity.getProfileActivityIntent(this);

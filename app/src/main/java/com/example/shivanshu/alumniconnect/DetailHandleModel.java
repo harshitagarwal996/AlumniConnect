@@ -12,9 +12,8 @@ public class DetailHandleModel {
         Log.d("digvijay","function is called");
         for(int i=0;i<s.length;i++)
         {
-            Log.d("digvijay","loop is called");
-            DetailArray[i]=s[i];
-            Log.d("digvijay",DetailArray[i] );
+          DetailArray[i]=s[i];
+           // Log.d("digvijay",DetailArray[i] );
         }
 
 
@@ -26,6 +25,10 @@ public class DetailHandleModel {
             DetailArray[i]=s[i];
         }
 
+    }
+    public String DeatilDisplay(int i)
+    {
+        return DetailArray[i];
     }
 
 

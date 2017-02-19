@@ -68,7 +68,8 @@ TextView DetailChangeTextView;
         super.onAttach(context);
         if (context instanceof OnProfileDetailFragmentInteractionListener) {
             mListener = (OnProfileDetailFragmentInteractionListener) context;
-        } else {
+        }
+        else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
@@ -101,19 +102,21 @@ TextView DetailChangeTextView;
         public ProfileDetailViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             Context context=parent.getContext();
             LayoutInflater inflate=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View view=inflate.inflate(R.layout.recycler_data_profile,parent,false);
+            View view=inflate.inflate(R.layout.profile_deatil_view_recycler,parent,false);
             return new ProfileDetailViewHolder(view);
         }
 
         @Override
         public void onBindViewHolder(ProfileDetailViewHolder holder, int position) {
-            holder.DeatilView.setText("nothing has to display please fill your all deastils");
+
+
+            holder.DeatilView.setText(new DetailHandleModel().DeatilDisplay(position));
 
         }
 
         @Override
         public int getItemCount() {
-            return 7;
+            return 6;
         }
     }
 
