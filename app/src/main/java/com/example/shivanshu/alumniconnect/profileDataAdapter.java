@@ -24,7 +24,7 @@ public class profileDataAdapter extends RecyclerView.Adapter<profileDataViewHold
 //todo change the date to whatever coming from your database
         holder.DateTextView.setText("DD-MM-YYYY to DD-MM-YYYY");
 //todo change this to whatever required @database
-        holder.ContactTextView.setText("for Query email and/or phone number");
+        holder.ContactTextView.setText("Contacts for Query");
     }
 
     @Override

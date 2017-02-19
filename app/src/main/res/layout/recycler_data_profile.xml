@@ -2,20 +2,28 @@
 <!--change it to frame layout if possible-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/selected_box"
+    android:paddingBottom="60dp">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="6dp"
         android:id="@+id/profile_data_recycler_text_view_company_name"/>
     <TextView
+        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="6dp"
         android:id="@+id/profile_data_recycler_text_view_date"/>
     <TextView
+        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:id="@+id/profile_data_recycler_text_view_contact"/>
+        android:gravity="center"
+        android:id="@+id/profile_data_recycler_text_view_contact"
+        android:padding="6dp"/>
 </LinearLayout>

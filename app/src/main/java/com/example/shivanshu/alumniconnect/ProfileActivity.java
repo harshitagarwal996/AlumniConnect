@@ -102,6 +102,6 @@ public class ProfileActivity extends AppCompatActivity implements ProfileFooterF
 
     @Override
     public void onProfileDetailFragmentInteraction() {
-
+        Log.d("harshit","ProfileDetail fragment interaction occured");
     }
 }
