@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -20,15 +21,18 @@ import android.widget.TextView;
  * Use the {@link StudentDetailFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class StudentDetailFragment extends Fragment implements View.OnFocusChangeListener{
+public class StudentDetailFragment extends Fragment implements View.OnFocusChangeListener,View.OnClickListener{
 
+private final int VALIDDATA=1;
+    private final int INVALIDDATA=2;
     int[]  ValidationId={R.id.name_validation,R.id.college_validation,R.id.college_id_validation,R.id.email_validation,R.id.phone_number_validation,R.id.branch_validation};
     private  TextView[] ValidationViews=new TextView[7];
     int[] EditTextId={R.id.name,R.id.college_name,R.id.college_id,R.id.email_id,R.id.contact_number,R.id.branch};
     EditText[] StudentDetails=new EditText[7];
-    String s="";
-    int i=0;
-
+     String[] s=new String[7];
+    Button TakeStudentsDetails;
+   static int i=0;
+private static int CheckedEnteryError=0;
     private String mParam1;
     private String mParam2;
 
@@ -76,15 +80,14 @@ public class StudentDetailFragment extends Fragment implements View.OnFocusChang
             StudentDetails[i]=(EditText)view.findViewById(EditTextId[i]);
             StudentDetails[i].setOnFocusChangeListener(this);
         }
+        TakeStudentsDetails=(Button)view.findViewById(R.id.take_student_detail_button);
+        TakeStudentsDetails.setOnClickListener(this);
+
         return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onStudentDetailInteraction(uri);
-        }
-    }
+
 
     @Override
     public void onAttach(Context context) {
@@ -109,21 +112,49 @@ public class StudentDetailFragment extends Fragment implements View.OnFocusChang
         for (i = 0; i < StudentDetails.length; i++) {
             if (i != 0) {
                 if (v == StudentDetails[i]) {
-                    s = StudentDetails[i - 1].getText().toString();
-                    if(s.length()==0)
+                    s[i] = StudentDetails[i - 1].getText().toString();
+                    if(s[i].length()==0)
                     {
+                        CheckedEnteryError=INVALIDDATA;
                         ValidationViews[i-1].setVisibility(View.VISIBLE);
                     }
                     else if(ValidationViews[i-1].getVisibility()==View.VISIBLE)
                     {
+                        CheckedEnteryError=VALIDDATA;
                         ValidationViews[i-1].setVisibility(View.GONE);
 
+                    }
+                    else
+                    {
+                        CheckedEnteryError=VALIDDATA;
                     }
                 }
             }
         }
 
     }
+
+    @Override
+    public void onClick(View v) {
+
+        if(CheckedEnteryError==VALIDDATA) {
+
+            if (i != 0) {
+                Log.d("digvijay", "Data is valid");
+                if (mListener != null) {
+                    mListener.onStudentDetailInteraction(s);
+
+
+                }
+            }
+        }
+            else
+            {
+                Log.d("digvijay","Data is not valid");
+            }
+        }
+
+
 
     /**
      * This interface must be implemented by activities that contain this
@@ -137,6 +168,6 @@ public class StudentDetailFragment extends Fragment implements View.OnFocusChang
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onStudentDetailInteraction(Uri uri);
+        void onStudentDetailInteraction(String[] s);
     }
 }
