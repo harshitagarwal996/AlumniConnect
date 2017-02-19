@@ -116,6 +116,7 @@ static  int CheckedEnteryError=0;
             if (i != 0) {
                 if (v == AlumniDetails[i]) {
                     s[i] = AlumniDetails[i - 1].getText().toString();
+                    Log.d("digvijay",""+s[i]);
                     if(s[i].length()==0)
                     {CheckedEnteryError=INVALIDDATA;
                         ValidationViews[i-1].setVisibility(View.VISIBLE);
@@ -136,7 +137,7 @@ static  int CheckedEnteryError=0;
     @Override
     public void onClick(View v) {
 
-        if(CheckedEnteryError==VALIDDATA) {
+        if(CheckedEnteryError==VALIDDATA||CheckedEnteryError==0) {
             if (i != 0) {
                 Log.d("digvijay", "Data is valid");
                 if (mListener != null) {

@@ -1,6 +1,7 @@
 package com.example.shivanshu.alumniconnect;
 
 import android.content.Context;
+import android.icu.text.LocaleDisplayNames;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -26,10 +27,10 @@ public class StudentDetailFragment extends Fragment implements View.OnFocusChang
 private final int VALIDDATA=1;
     private final int INVALIDDATA=2;
     int[]  ValidationId={R.id.name_validation,R.id.college_validation,R.id.college_id_validation,R.id.email_validation,R.id.phone_number_validation,R.id.branch_validation};
-    private  TextView[] ValidationViews=new TextView[7];
+    private  TextView[] ValidationViews=new TextView[6 ];
     int[] EditTextId={R.id.name,R.id.college_name,R.id.college_id,R.id.email_id,R.id.contact_number,R.id.branch};
-    EditText[] StudentDetails=new EditText[7];
-     String[] s=new String[7];
+    EditText[] StudentDetails=new EditText[6];
+     String[] s=new String[6];
     Button TakeStudentsDetails;
    static int i=0;
 private static int CheckedEnteryError=0;
@@ -78,7 +79,7 @@ private static int CheckedEnteryError=0;
 
             ValidationViews[i]=(TextView)view.findViewById(ValidationId[i]);
             StudentDetails[i]=(EditText)view.findViewById(EditTextId[i]);
-            StudentDetails[i].setOnFocusChangeListener(this);
+            StudentDetails[i].setOnFocusChangeListener( this);
         }
         TakeStudentsDetails=(Button)view.findViewById(R.id.take_student_detail_button);
         TakeStudentsDetails.setOnClickListener(this);
@@ -112,8 +113,8 @@ private static int CheckedEnteryError=0;
         for (i = 0; i < StudentDetails.length; i++) {
             if (i != 0) {
                 if (v == StudentDetails[i]) {
-                    s[i] = StudentDetails[i - 1].getText().toString();
-                    if(s[i].length()==0)
+                    s[i-1] = StudentDetails[i - 1].getText().toString();
+                    if(s[i-1].length()==0)
                     {
                         CheckedEnteryError=INVALIDDATA;
                         ValidationViews[i-1].setVisibility(View.VISIBLE);
@@ -136,18 +137,24 @@ private static int CheckedEnteryError=0;
 
     @Override
     public void onClick(View v) {
+        s[i-1]=StudentDetails[i-1].getText().toString();
 
-        if(CheckedEnteryError==VALIDDATA) {
+        if(CheckedEnteryError==VALIDDATA||CheckedEnteryError==0) {
+            for(int j=0;j<StudentDetails.length;j++)
+            {
+                Log.d("digvijay",""+s[j]);
+            }
 
-            if (i != 0) {
+            DetailHandleModel.studentRegistrationDetail(s);
+            if(i!=0)
                 Log.d("digvijay", "Data is valid");
                 if (mListener != null) {
-                    mListener.onStudentDetailInteraction(s);
+                    mListener.onStudentDetailInteraction();
 
 
                 }
             }
-        }
+
             else
             {
                 Log.d("digvijay","Data is not valid");
@@ -168,6 +175,6 @@ private static int CheckedEnteryError=0;
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onStudentDetailInteraction(String[] s);
+        void onStudentDetailInteraction();
     }
 }
