@@ -20,8 +20,11 @@ public class profileDataAdapter extends RecyclerView.Adapter<profileDataViewHold
 
     @Override
     public void onBindViewHolder(profileDataViewHolder holder, int position) {
-        holder.textView.setText("Company "+(position+1)+" campus placement");
-
+        holder.CompanyTextView.setText("Company "+(position+1)+" campus placement");
+//todo change the date to whatever coming from your database
+        holder.DateTextView.setText("DD-MM-YYYY to DD-MM-YYYY");
+//todo change this to whatever required @database
+        holder.ContactTextView.setText("for Query email and/or phone number");
     }
 
     @Override
