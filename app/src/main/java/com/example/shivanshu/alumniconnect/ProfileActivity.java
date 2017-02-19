@@ -12,7 +12,7 @@ import android.view.View;
 
 import com.example.shivanshu.alumniconnect.dummy.DummyContent;
 
-public class ProfileActivity extends AppCompatActivity implements ProfileFooterFragment.OnProfileFooterFragmentInteractionListener,ProfileDataFragment.OnProfileDataFragmentInteractionListener,ProfileHeaderFragment.OnProfileHeaderFragmentInteractionListener,CompanyNameFragment.OnCompanyNameFragmentInteractionListener{
+public class ProfileActivity extends AppCompatActivity implements ProfileFooterFragment.OnProfileFooterFragmentInteractionListener,ProfileDataFragment.OnProfileDataFragmentInteractionListener,ProfileHeaderFragment.OnProfileHeaderFragmentInteractionListener,CompanyNameFragment.OnCompanyNameFragmentInteractionListener,ProfileDetailFragment.OnProfileDetailFragmentInteractionListener{
 
     FragmentManager manager;
 
@@ -69,7 +69,9 @@ public class ProfileActivity extends AppCompatActivity implements ProfileFooterF
         }
         else if(uri.getId()==R.id.profile_fragment_profile_footer)
         {
-
+            FragmentTransaction transaction = manager.beginTransaction().replace(R.id.profile_data_fragment_profile_activity, new ProfileDetailFragment());
+            transaction.commit();
+            Log.d("harshit","profile button clicked");
         }
         else if(uri.getId()==R.id.company_fragment_profile_footer)
         {
@@ -96,5 +98,10 @@ public class ProfileActivity extends AppCompatActivity implements ProfileFooterF
     @Override
     public void onCompanyNameFragmentInteraction(DummyContent.DummyItem item) {
         Log.d("harshit","onCompanyNameInteraction called");
+    }
+
+    @Override
+    public void onProfileDetailFragmentInteraction() {
+
     }
 }

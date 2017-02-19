@@ -1,7 +1,6 @@
 package com.example.shivanshu.alumniconnect;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,7 +21,7 @@ TextView DetailChangeTextView;
     private String mParam2;
 
 
-    private OnFragmentInteractionListener mListener;
+    private OnProfileDetailFragmentInteractionListener mListener;
 
     public ProfileDetailFragment() {
     }
@@ -60,15 +59,15 @@ TextView DetailChangeTextView;
 
     public void onButtonPressed() {
         if (mListener != null) {
-            mListener.onFragmentInteraction();
+            mListener.onProfileDetailFragmentInteraction();
         }
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
+        if (context instanceof OnProfileDetailFragmentInteractionListener) {
+            mListener = (OnProfileDetailFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -87,8 +86,8 @@ TextView DetailChangeTextView;
 
     }
 
-    public interface OnFragmentInteractionListener {
-        void onFragmentInteraction();
+    public interface OnProfileDetailFragmentInteractionListener {
+        void onProfileDetailFragmentInteraction();
     }
 
 
