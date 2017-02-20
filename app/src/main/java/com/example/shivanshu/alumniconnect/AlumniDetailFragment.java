@@ -36,10 +36,10 @@ public class AlumniDetailFragment extends Fragment implements View.OnFocusChange
     private final int INVALIDDATA=2;
 
    int[]  ValidationId={R.id.name_validation,R.id.college_validation,R.id.company_validation,R.id.email_validation,R.id.phone_number_validation,R.id.tech_validation};
-   private  TextView[] ValidationViews=new TextView[7];
+   private  TextView[] ValidationViews=new TextView[6];
     int[] EditTextId={R.id.name,R.id.college_name,R.id.company_name,R.id.email_id,R.id.contact_number,R.id.working_technology};
-    EditText[] AlumniDetails=new EditText[7];
-    String[] s=new String[7];
+    EditText[] AlumniDetails=new EditText[6];
+    String[] s=new String[6];
     Button AlumniDetailButton;
     int i=0;
 static  int CheckedEnteryError=0;
@@ -115,9 +115,9 @@ static  int CheckedEnteryError=0;
         for (i = 0; i < AlumniDetails.length; i++) {
             if (i != 0) {
                 if (v == AlumniDetails[i]) {
-                    s[i] = AlumniDetails[i - 1].getText().toString();
+                    s[i-1] = AlumniDetails[i - 1].getText().toString();
                     Log.d("digvijay",""+s[i]);
-                    if(s[i].length()==0)
+                    if(s[i-1].length()==0)
                     {CheckedEnteryError=INVALIDDATA;
                         ValidationViews[i-1].setVisibility(View.VISIBLE);
                     }
@@ -138,6 +138,7 @@ static  int CheckedEnteryError=0;
     public void onClick(View v) {
 
         if(CheckedEnteryError==VALIDDATA||CheckedEnteryError==0) {
+            DetailHandleModel.alumniRegistrationDetail(s);
             if (i != 0) {
                 Log.d("digvijay", "Data is valid");
                 if (mListener != null) {

@@ -28,6 +28,7 @@ public class DetailHandleModel {
     }
     public String DeatilDisplay(int i)
     {
+
         return DetailArray[i];
     }
 

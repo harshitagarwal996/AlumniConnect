@@ -48,7 +48,7 @@ detailManager=getSupportFragmentManager();
     public void onStudentDetailInteraction() {
         Log.d("digvijay","Data sucessfully submitted");
         //DetailHandleModel.studentRegistrationDetail(s);
-        Intent intent=ProfileActivity.getProfileActivityIntent(this);
+        Intent intent=ProfileActivity.getProfileActivityIntent(this,STUNDENT_INDEX);
         startActivity(intent);
 
     }
@@ -57,7 +57,7 @@ detailManager=getSupportFragmentManager();
     public void onAlumniDetailInteraction(String[] s) {
         Log.d("digvijay","Data sucessfully submitted");
         //DetailHandleModel.alumniRegistrationDetail(s);
-        Intent intent=ProfileActivity.getProfileActivityIntent(this);
+        Intent intent=ProfileActivity.getProfileActivityIntent(this,ALUMNI_INDEX);
         startActivity(intent);
 
     }
