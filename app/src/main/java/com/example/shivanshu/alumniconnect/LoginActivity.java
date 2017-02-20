@@ -26,7 +26,7 @@ TextView currentStudent;
         if(fragmentManager==null) {
             fragmentManager = getSupportFragmentManager();
             LoginFragment loginFragment = LoginFragment.newInstance();
-            LoginTransaction = fragmentManager.beginTransaction();
+            FragmentTransaction   LoginTransaction = fragmentManager.beginTransaction();
             LoginTransaction.add(R.id.student_login_fragment, loginFragment);
             LoginTransaction.commit();
         }
@@ -38,7 +38,7 @@ TextView currentStudent;
         if(count==1)
         {
             AlumniFragment alumniFragment = AlumniFragment.newInstance();
-            LoginTransaction = fragmentManager.beginTransaction();
+            FragmentTransaction LoginTransaction = fragmentManager.beginTransaction();
             LoginTransaction.replace(R.id.student_login_fragment, alumniFragment);
             LoginTransaction.addToBackStack(null);
             LoginTransaction.commit();
@@ -49,6 +49,7 @@ TextView currentStudent;
 
             Intent intent=ProfileActivity.getProfileActivityIntent(this,STUDENT_INDEX);
             startActivity(intent);
+            finish();
 
         }
         if(count==3)
@@ -65,7 +66,7 @@ startActivity(intent);
         if (count == 1) {
 
             LoginFragment loginFragment = LoginFragment.newInstance();
-            LoginTransaction = fragmentManager.beginTransaction();
+            FragmentTransaction LoginTransaction = fragmentManager.beginTransaction();
             LoginTransaction.replace(R.id.student_login_fragment, loginFragment);
             LoginTransaction.addToBackStack(null);
             LoginTransaction.commit();
@@ -76,6 +77,7 @@ startActivity(intent);
             String Password=LoginFragment.studentPassword();
             Intent intent=ProfileActivity.getProfileActivityIntent(this,Alumni_INDEX);
             startActivity(intent);
+            finish();
         }
         if(count==3)
         {
