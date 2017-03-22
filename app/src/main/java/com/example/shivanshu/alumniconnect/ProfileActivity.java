@@ -9,11 +9,12 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 
 import com.example.shivanshu.alumniconnect.dummy.DummyContent;
 
-public class ProfileActivity extends AppCompatActivity implements ProfileFooterFragment.OnProfileFooterFragmentInteractionListener,ProfileDataFragment.OnProfileDataFragmentInteractionListener,StudentDetailFragment.OnFragmentInteractionListener,ProfileHeaderFragment.OnProfileHeaderFragmentInteractionListener,CompanyNameFragment.OnCompanyNameFragmentInteractionListener,ProfileDetailFragment.OnProfileDetailFragmentInteractionListener,AlumniDetailFragment.OnFragmentInteractionListener {
-
+public class ProfileActivity extends AppCompatActivity implements ChatFragment.OnChatFragmentInteractionListener,ProfileFooterFragment.OnProfileFooterFragmentInteractionListener,ProfileDataFragment.OnProfileDataFragmentInteractionListener,StudentDetailFragment.OnFragmentInteractionListener,ProfileHeaderFragment.OnProfileHeaderFragmentInteractionListener,CompanyNameFragment.OnCompanyNameFragmentInteractionListener,ProfileDetailFragment.OnProfileDetailFragmentInteractionListener,AlumniDetailFragment.OnFragmentInteractionListener {
+FrameLayout HeaderLayout;
     FragmentManager manager;
     static Context context;
     static int HostingDetails;
@@ -30,6 +31,7 @@ public class ProfileActivity extends AppCompatActivity implements ProfileFooterF
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        HeaderLayout=(FrameLayout)findViewById(R.id.profile_header_fragment_profile_activity);
         manager = getSupportFragmentManager();
         if (manager.findFragmentById(R.id.profile_header_fragment_profile_activity) == null) {
 
@@ -63,21 +65,33 @@ public class ProfileActivity extends AppCompatActivity implements ProfileFooterF
         Log.d("harshit", "button clicked");
         if (uri.getId() == R.id.home_fragment_profile_footer) {
             //may have some bugs
+            HeaderLayout.setVisibility(View.VISIBLE);
             FragmentTransaction transaction = manager.beginTransaction().replace(R.id.profile_data_fragment_profile_activity, new ProfileDataFragment());
             transaction.commit();
             Log.d("harshit", "home button clicked");
         } else if (uri.getId() == R.id.profile_fragment_profile_footer) {
+
+            HeaderLayout.setVisibility(View.VISIBLE);
             FragmentTransaction transaction = manager.beginTransaction().replace(R.id.profile_data_fragment_profile_activity, new ProfileDetailFragment());
             transaction.commit();
             Log.d("harshit", "profile button clicked");
         } else if (uri.getId() == R.id.company_fragment_profile_footer) {
+            HeaderLayout.setVisibility(View.VISIBLE);
             FragmentTransaction transaction = manager.beginTransaction().replace(R.id.profile_data_fragment_profile_activity, new CompanyNameFragment());
             transaction.commit();
             Log.d("harshit", "company button clicked");
 
-        } else if (uri.getId() == R.id.chat_fragment_profile_footer) {
+        }
 
-        } else if (uri.getId() == R.id.setting_fragment_profile_footer) {
+        else if (uri.getId() == R.id.chat_fragment_profile_footer) {
+
+
+            FragmentTransaction transaction = manager.beginTransaction().replace(R.id.profile_data_fragment_profile_activity, ChatFragment.newInstance());
+            transaction.commit();
+            HeaderLayout.setVisibility(View.GONE);
+        }
+
+        else if (uri.getId() == R.id.setting_fragment_profile_footer) {
 
         }
     }
@@ -120,6 +134,11 @@ public class ProfileActivity extends AppCompatActivity implements ProfileFooterF
     public void onAlumniDetailInteraction(String[] s) {
         FragmentTransaction transaction = manager.beginTransaction().replace(R.id.profile_data_fragment_profile_activity, new ProfileDetailFragment());
         transaction.commit();
+
+    }
+
+    @Override
+    public void onChatFragmentInteraction(Uri uri) {
 
     }
 }

@@ -47,6 +47,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
         android:hint="Email Id"
         android:background="@drawable/selected_box"/>
 
@@ -55,10 +57,14 @@
         android:id="@+id/student_alumni_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
         android:layout_marginTop="16dp"
+        android:password="true"
         android:hint="Password"
         android:background="@drawable/selected_box"/>
     <Button
+        android:layout_marginTop="16dp"
         android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

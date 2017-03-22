@@ -187,6 +187,36 @@
             android:textColor="@color/warning_color"
             android:background="@drawable/waring_box"
             android:visibility="gone"/>
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Working Technology:"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+        <EditText
+            android:maxLines="1"
+            android:id="@+id/alumni_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:textColor="@color/edittext_color_2"
+            android:textStyle="bold"
+            android:paddingBottom="15dp"
+            android:password="true"
+            android:background="@drawable/selected_box"
+            android:hint="Enter your Password"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/password_validation"
+            android:text="krapya sahi password dalien"
+            android:textColor="@color/warning_color"
+            android:background="@drawable/waring_box"
+            android:visibility="gone"/>
+
         <Button
             android:id="@+id/submit_alumni_detail"
             android:layout_marginTop="16dp"

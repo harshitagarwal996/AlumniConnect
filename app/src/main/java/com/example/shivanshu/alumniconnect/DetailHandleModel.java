@@ -7,7 +7,7 @@ import android.util.Log;
  */
 
 public class DetailHandleModel {
-    public static String[] DetailArray=new String[7];
+    public static String[] DetailArray={"","","","","","","",""};
     public static void studentRegistrationDetail(String[] s){
         Log.d("digvijay","function is called");
         for(int i=0;i<s.length;i++)

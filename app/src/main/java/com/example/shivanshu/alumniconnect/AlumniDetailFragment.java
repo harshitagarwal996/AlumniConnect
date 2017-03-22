@@ -1,15 +1,8 @@
 package com.example.shivanshu.alumniconnect;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,8 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import static com.example.shivanshu.alumniconnect.R.drawable.selected_box;
 
 
 /**
@@ -35,11 +26,11 @@ public class AlumniDetailFragment extends Fragment implements View.OnFocusChange
     private final int VALIDDATA=1;
     private final int INVALIDDATA=2;
 
-   int[]  ValidationId={R.id.name_validation,R.id.college_validation,R.id.company_validation,R.id.email_validation,R.id.phone_number_validation,R.id.tech_validation};
-   private  TextView[] ValidationViews=new TextView[6];
-    int[] EditTextId={R.id.name,R.id.college_name,R.id.company_name,R.id.email_id,R.id.contact_number,R.id.working_technology};
-    EditText[] AlumniDetails=new EditText[6];
-    String[] s=new String[6];
+   int[]  ValidationId={R.id.name_validation,R.id.college_validation,R.id.company_validation,R.id.email_validation,R.id.phone_number_validation,R.id.tech_validation,R.id.password_validation};
+   private  TextView[] ValidationViews=new TextView[7];
+    int[] EditTextId={R.id.name,R.id.college_name,R.id.company_name,R.id.email_id,R.id.contact_number,R.id.working_technology,R.id.alumni_password};
+    EditText[] AlumniDetails=new EditText[7];
+    String[] s=new String[7];
     Button AlumniDetailButton;
     int i=0;
 static  int CheckedEnteryError=0;
@@ -85,6 +76,7 @@ static  int CheckedEnteryError=0;
         {
             ValidationViews[i]=(TextView)view.findViewById(ValidationId[i]);
             AlumniDetails[i]=(EditText)view.findViewById(EditTextId[i]);
+            AlumniDetails[i].setText(DetailHandleModel.DetailArray[i]);
             AlumniDetails[i].setOnFocusChangeListener(this);
         }
         AlumniDetailButton=(Button)view.findViewById(R.id.submit_alumni_detail);
