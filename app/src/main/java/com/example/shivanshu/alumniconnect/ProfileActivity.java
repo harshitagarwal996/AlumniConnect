@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.example.shivanshu.alumniconnect.dummy.DummyContent;
 
@@ -20,6 +21,7 @@ FrameLayout HeaderLayout;
     static int HostingDetails;
     private final int STUDENTINDEX = 1;
     private final int ALUMNIINDEX = 0;
+    private int flagExitOnBackPressed=0;
 
     public static Intent getProfileActivityIntent(Context c, int Deatils) {
         HostingDetails = Deatils;
@@ -31,6 +33,7 @@ FrameLayout HeaderLayout;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        flagExitOnBackPressed=0;
         HeaderLayout=(FrameLayout)findViewById(R.id.profile_header_fragment_profile_activity);
         manager = getSupportFragmentManager();
         if (manager.findFragmentById(R.id.profile_header_fragment_profile_activity) == null) {
@@ -53,6 +56,13 @@ FrameLayout HeaderLayout;
             profileFooterfragmentTransaction.add(R.id.profile_footer_fragment_profile_activity, profileFooterFragment);
             profileFooterfragmentTransaction.commit();
         }
+    }
+    @Override
+    public void onBackPressed() {
+        if(flagExitOnBackPressed>=2)
+            finish();
+        Toast.makeText(this,"Press again to exit",Toast.LENGTH_SHORT).show();
+        flagExitOnBackPressed+=1;
     }
 
     @Override
@@ -92,6 +102,8 @@ FrameLayout HeaderLayout;
         }
 
         else if (uri.getId() == R.id.setting_fragment_profile_footer) {
+            //TODO: clear shared preferences
+            finish();
 
         }
     }
