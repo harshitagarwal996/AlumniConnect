@@ -25,7 +25,7 @@ public interface MailChimpApi {
             @Field("collegename") String collegename,
             @Field("collegeid") String collegeid,
             @Field("emailid") String email,
-            @Field("contactnumber") String contactnumber,
+            @Field("contactnumber") long contactnumber,
             @Field("branch") String branch,
             @Field("password") String password);
 
@@ -37,7 +37,7 @@ public interface MailChimpApi {
             @Field("collegename") String collegename,
             @Field("collegeid") String collegeid,
             @Field("emailid") String email,
-            @Field("contactnumber") String contactnumber,
+            @Field("contactnumber") long contactnumber,
             @Field("branch") String branch,
             @Field("password") String password);
 

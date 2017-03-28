@@ -64,7 +64,7 @@ String result="";
 
     @Override
     public void onStudentDetailInteraction() {
-        double x=0;
+        long x=0;
         int i=0;
             D1 = DetailHandleModel.DetailArray[i];
             D2 = DetailHandleModel.DetailArray[i+1];
@@ -73,8 +73,8 @@ String result="";
             D5 = DetailHandleModel.DetailArray[i+4];
             D6 = DetailHandleModel.DetailArray[i+5];
             D7 = DetailHandleModel.DetailArray[i+6];
-          // x=Double.parseDouble(D5);
-        Call<MailChimpApiLIst> call= RetrofitObject.getRetrofitObject().insertUser(D1, D2, D3, D4, D5, D6, D7);
+           x=Long.parseLong(D5);
+        Call<MailChimpApiLIst> call= RetrofitObject.getRetrofitObject().insertUser(D1, D2, D3, D4, x, D6, D7);
         call.enqueue(this);
 
 
@@ -84,7 +84,7 @@ String result="";
 
     @Override
     public void onAlumniDetailInteraction() {
-        double x=0;
+        long x=0;
         int i=0;
         D1 = DetailHandleModel.DetailArray[i];
         D2 = DetailHandleModel.DetailArray[i+1];
@@ -93,7 +93,8 @@ String result="";
         D5 = DetailHandleModel.DetailArray[i+4];
         D6 = DetailHandleModel.DetailArray[i+5];
         D7 = DetailHandleModel.DetailArray[i+6];
-        Call<MailChimpApiLIst> call= RetrofitObject.getRetrofitObject().insertAlumni(D1, D2, D3, D4, D5, D6, D7);
+        x=Long.parseLong(D5);
+        Call<MailChimpApiLIst> call= RetrofitObject.getRetrofitObject().insertAlumni(D1, D2, D3, D4, x, D6, D7);
         call.enqueue(this);
     }
 

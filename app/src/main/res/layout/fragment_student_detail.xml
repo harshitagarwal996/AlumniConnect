@@ -135,7 +135,7 @@
                 android:background="@drawable/selected_box"
                 android:textSize="18dp"/>
             <EditText
-                android:maxLines="1"
+                android:maxLength="10"
                 android:id="@+id/contact_number"
                 android:textColor="@color/edittext_color_2"
                 android:textStyle="bold"
