@@ -131,7 +131,7 @@ FrameLayout HeaderLayout;
     }
 
     @Override
-    public void onAlumniDetailInteraction(String[] s) {
+    public void onAlumniDetailInteraction() {
         FragmentTransaction transaction = manager.beginTransaction().replace(R.id.profile_data_fragment_profile_activity, new ProfileDetailFragment());
         transaction.commit();
 

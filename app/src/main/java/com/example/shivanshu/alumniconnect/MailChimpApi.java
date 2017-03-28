@@ -28,6 +28,8 @@ public interface MailChimpApi {
             @Field("contactnumber") String contactnumber,
             @Field("branch") String branch,
             @Field("password") String password);
+
+
     @FormUrlEncoded
     @POST("alumni.php")
     public  Call<MailChimpApiLIst> insertAlumni(
@@ -38,6 +40,8 @@ public interface MailChimpApi {
             @Field("contactnumber") String contactnumber,
             @Field("branch") String branch,
             @Field("password") String password);
+
+
     @GET("lists/{list_id}/members")
     public Call<Void> fetchContacts(@Query("apikey") String apiKey, @Path("list_id") String listId);
 }

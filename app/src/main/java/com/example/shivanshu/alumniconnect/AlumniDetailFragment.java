@@ -108,7 +108,7 @@ static  int CheckedEnteryError=0;
             if (i != 0) {
                 if (v == AlumniDetails[i]) {
                     s[i-1] = AlumniDetails[i - 1].getText().toString();
-                    Log.d("digvijay",""+s[i]);
+                    Log.d("digvijay",""+s[i-1]);
                     if(s[i-1].length()==0)
                     {CheckedEnteryError=INVALIDDATA;
                         ValidationViews[i-1].setVisibility(View.VISIBLE);
@@ -128,13 +128,13 @@ static  int CheckedEnteryError=0;
 
     @Override
     public void onClick(View v) {
-
+        s[i-1]=AlumniDetails[i-1].getText().toString();
         if(CheckedEnteryError==VALIDDATA||CheckedEnteryError==0) {
             DetailHandleModel.alumniRegistrationDetail(s);
             if (i != 0) {
                 Log.d("digvijay", "Data is valid");
                 if (mListener != null) {
-                    mListener.onAlumniDetailInteraction(s);
+                    mListener.onAlumniDetailInteraction();
 
 
                 }
@@ -160,6 +160,6 @@ static  int CheckedEnteryError=0;
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onAlumniDetailInteraction(String[] s);
+        void onAlumniDetailInteraction();
     }
 }
