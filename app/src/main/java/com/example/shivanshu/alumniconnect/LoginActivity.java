@@ -15,8 +15,6 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static android.R.transition.fade;
-
 public class LoginActivity extends AppCompatActivity implements LoginFragment.OnStudentInteractionListener,AlumniFragment.OnAlumniInteractionListener{
 TextView currentStudent;
     TextView alumni;
@@ -66,7 +64,7 @@ TextView currentStudent;
             Password = LoginFragment.studentPassword();
 
             if (Username.equals("") || Password.equals("")) {
-                Toast.makeText(this, "Invalid Username or Password", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
             } else {
                 DataBaseConnectivity db = new DataBaseConnectivity(this);
                 Cursor cr = db.studentGetAuthorised(db);
@@ -94,7 +92,6 @@ TextView currentStudent;
         {
             Intent intent=StudentDetail.getIntent(this,STUDENT_INDEX);
 startActivity(intent);
-            finish();
         }
 
     }
@@ -125,7 +122,6 @@ startActivity(intent);
         {
             Intent intent=StudentDetail.getIntent(this,Alumni_INDEX);
             startActivity(intent);
-            finish();
         }
 
         }
