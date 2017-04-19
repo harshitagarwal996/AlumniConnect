@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_company_full_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.shivanshu.alumniconnect.CompanyFullDetailFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+        <LinearLayout
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="3">
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="JOB DECRIPTION:"
+                android:textSize="16dp"
+                android:background="@drawable/solid_border"
+                android:textColor="#1a27d7"/>
+            <TextView
+                android:id="@+id/job_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:text=""
+                android:textColor="#000000"
+                ></TextView>
+            <TextView
+                android:layout_marginTop="16dp"
+android:id="@+id/number_of_round"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/solid_border"
+                android:textSize="16dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:text="NUMBER OF ROUNDS:"
+                android:textColor="#1a27d7"/>
+            <TextView
+android:layout_marginTop="16dp"
+                android:id="@+id/number_of_student_sitted"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:textAlignment="center"
+                android:background="@drawable/solid_border"
+                android:text="NUMBER OF STUDENT SITTED:"
+                android:textColor="#1a27d7"/>
+            <TextView
+android:layout_marginTop="16dp"
+                android:id="@+id/number_of_student_sellected"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:background="@drawable/solid_border"
+                android:textAlignment="center"
+                android:textSize="16dp"
+                android:layout_height="wrap_content"
+                android:text="NUMBER OF STUDENT PLACED:"
+                android:textColor="#1a27d7"/>
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:id="@+id/hot_question"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:background="#717171"
+                    android:textSize="16dp"
+                    android:text="HOT QUESTION FOR THIS COMPANY"
+                    android:textColor="#ffffff"/>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+
+

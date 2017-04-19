@@ -12,6 +12,7 @@ public class DetailHandleModel {
         Log.d("digvijay","function is called");
         for(int i=0;i<s.length;i++)
         {
+            Log.d("digvijay",""+s.length);
           DetailArray[i]=s[i];
            // Log.d("digvijay",DetailArray[i] );
         }

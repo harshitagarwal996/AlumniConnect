@@ -73,6 +73,7 @@ String result="";
             D5 = DetailHandleModel.DetailArray[i+4];
             D6 = DetailHandleModel.DetailArray[i+5];
             D7 = DetailHandleModel.DetailArray[i+6];
+        Log.d("digvijay",""+D7);
            x=Long.parseLong(D5);
         Call<MailChimpApiLIst> call= RetrofitObject.getRetrofitObject().insertUser(D1, D2, D3, D4, x, D6, D7);
         call.enqueue(this);
@@ -121,6 +122,7 @@ String result="";
         t.printStackTrace();
         result="";
         Toast.makeText(this, "please check your url pattern", Toast.LENGTH_SHORT).show();
+        Log.d("digvijay",""+t);
 
     }
 }

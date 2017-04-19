@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@drawable/selected_box"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginStart="12dp"
+    android:layout_marginEnd="12dp"
+    android:layout_height="wrap_content">
+    
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/company_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/company_image"
+        android:layout_toEndOf="@+id/company_image">
+    <TextView
+        android:id="@+id/company_fetch_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="#198ee2"/>
+    <TextView
+        android:layout_marginTop="4dp"
+        android:id="@+id/durration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#071791"
+        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="We are tring to do our best for society and generate valuable product for industry"/>
+    <TextView
+        android:id="@+id/view_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VIEW MORE"
+        android:textColor="@color/warning_color"/>
+    </LinearLayout>
+</RelativeLayout>
+</android.support.v7.widget.CardView>

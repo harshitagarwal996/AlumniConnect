@@ -42,6 +42,15 @@ public interface MailChimpApi {
             @Field("password") String password);
 
 
-    @GET("lists/{list_id}/members")
-    public Call<Void> fetchContacts(@Query("apikey") String apiKey, @Path("list_id") String listId);
+    @GET("company.php")
+    public Call<MailChimpList> companyDetails(@Query("querycode") int querycode,@Query("companyname") String companyname);
+
+    @GET("company.php")
+    public Call<CompanyServerList> companyList(@Query("querycode") int querycode,@Query("companyname") String companyname);
+    @GET("question.php")
+    public Call<QuestionServerList> questionList(@Query("companyname") String companyname);
+    @GET("studentvalidate.php")
+    public Call<MailChimpApiLIst> studentValidate(@Query("collegeid") String querycode,@Query("password") String companyname);
+    @GET("alumnivalidate.php")
+    public Call<MailChimpApiLIst> alumniValidate(@Query("collegeid") String querycode,@Query("password") String companyname);
 }

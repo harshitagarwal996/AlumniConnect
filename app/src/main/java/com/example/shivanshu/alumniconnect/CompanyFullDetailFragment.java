@@ -1,26 +1,30 @@
 package com.example.shivanshu.alumniconnect;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-/**
- * Created by Harshit on 16-02-2017.
- */
+import android.widget.TextView;
+
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ProfileDataFragment.OnProfileDataFragmentInteractionListener} interface
+ * {@link CompanyFullDetailFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ProfileDataFragment#newInstance} factory method to
+ * Use the {@link CompanyFullDetailFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProfileDataFragment extends Fragment implements View.OnClickListener{
+public class CompanyFullDetailFragment extends Fragment {
+    TextView jobdescription;
+    TextView numberofround;
+    TextView numberofselected;
+    TextView numberoapplied;
+    TextView QuestionQuery;
+    CompanyServerDetails details;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -30,9 +34,9 @@ public class ProfileDataFragment extends Fragment implements View.OnClickListene
     private String mParam1;
     private String mParam2;
 
-    private OnProfileDataFragmentInteractionListener mListener;
+    private OnFragmentInteractionListener mListener;
 
-    public ProfileDataFragment() {
+    public CompanyFullDetailFragment() {
         // Required empty public constructor
     }
 
@@ -42,14 +46,14 @@ public class ProfileDataFragment extends Fragment implements View.OnClickListene
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ProfileDataFragment.
+     * @return A new instance of fragment CompanyFullDetailFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ProfileDataFragment newInstance(String param1, String param2) {
-        ProfileDataFragment fragment = new ProfileDataFragment();
+    public static CompanyFullDetailFragment newInstance() {
+        CompanyFullDetailFragment fragment = new CompanyFullDetailFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        //args.putString(ARG_PARAM1, param1);
+        //args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -64,30 +68,43 @@ public class ProfileDataFragment extends Fragment implements View.OnClickListene
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View inflate = inflater.inflate(R.layout.fragment_profile_data, container, false);
-        RecyclerView profileDataRecycler= (RecyclerView) inflate.findViewById(R.id.profile_data_recycler);
-        profileDataRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
-        profileDataRecycler.setAdapter(new profileDataAdapter());
-        return inflate;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+         View view=inflater.inflate(R.layout.fragment_company_full_detail, container, false);
+        jobdescription=(TextView)view.findViewById(R.id.job_description);
+        numberofround=(TextView)view.findViewById(R.id.number_of_round);
+        numberofselected=(TextView)view.findViewById(R.id.number_of_student_sellected);
+        numberoapplied=(TextView)view.findViewById(R.id.number_of_student_sitted);
+        jobdescription.setText(DetailHandleClass.getJobDescription().toString());
+        numberofround.append(" "+DetailHandleClass.NumberOfRound());
+        numberoapplied.append(""+DetailHandleClass.NumberOfApplied());
+        numberofselected.append(""+DetailHandleClass.getNumberOfSelected());
+        QuestionQuery=(TextView)view.findViewById(R.id.hot_question);
+        QuestionQuery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onButtonPressed();
+            }
+        });
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(View uri) {
+    public void onButtonPressed() {
         if (mListener != null) {
-            mListener.onProfileDataFragmentInteraction(uri);
+            mListener.onFragmentInteraction();
         }
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnProfileDataFragmentInteractionListener) {
-            mListener = (OnProfileDataFragmentInteractionListener) context;
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
-                    + " must implement OnProfileDataFragmentInteractionListener");
+                    + " must implement OnFragmentInteractionListener");
         }
     }
 
@@ -95,12 +112,6 @@ public class ProfileDataFragment extends Fragment implements View.OnClickListene
     public void onDetach() {
         super.onDetach();
         mListener = null;
-    }
-
-    @Override
-    public void onClick(View v) {
-
-        this.onButtonPressed(v);
     }
 
     /**
@@ -113,8 +124,8 @@ public class ProfileDataFragment extends Fragment implements View.OnClickListene
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnProfileDataFragmentInteractionListener {
+    public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onProfileDataFragmentInteraction(View uri);
+        void onFragmentInteraction();
     }
 }

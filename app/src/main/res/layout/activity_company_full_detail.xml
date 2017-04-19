@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_company_full_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.shivanshu.alumniconnect.CompanyFullDetailActivity">
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="2">
+    <RelativeLayout
+android:id="@+id/image_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/company_header_layout">
+        <ImageView
+            android:id="@+id/company_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
+    <FrameLayout
+        android:id="@+id/full_deatils"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"></FrameLayout>
+</LinearLayout>
+

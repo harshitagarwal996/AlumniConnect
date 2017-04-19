@@ -66,26 +66,7 @@ TextView currentStudent;
             if (Username.equals("") || Password.equals("")) {
                 Toast.makeText(this, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
             } else {
-                DataBaseConnectivity db = new DataBaseConnectivity(this);
-                Cursor cr = db.studentGetAuthorised(db);
-                cr.moveToFirst();
-                do {
-                    Log.d("digvijay", cr.getString(0));
-                    if ((Username.equals(cr.getString(0))) && (Password.equals(cr.getString(1)))) ;
-                    {
-                        LoginStatus = true;
-                    }
 
-                } while (cr.moveToNext());
-
-                if (LoginStatus) {
-                    Intent intent = ProfileActivity.getProfileActivityIntent(this, STUDENT_INDEX);
-                    startActivity(intent);
-                    finish();
-                } else {
-
-                    Toast.makeText(this, "Invalid Username or Password", Toast.LENGTH_LONG).show();
-                }
             }
         }
         if(count==3)
